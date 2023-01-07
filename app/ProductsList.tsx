@@ -3,11 +3,10 @@ import useSWR from "swr";
 //import Product from "../typings";
 
 const fetcher = async () => {
-  const data = await fetch("https://dummyjson.com/products").then((res) =>
-    res.json()
-  );
+  const data = await fetch("/api/getProducts").then((res) => res.json());
   console.log("----fetching products----");
   const products: Product[] = data.products;
+  console.log(products)
   return products;
 };
 

@@ -1,10 +1,7 @@
-import React from "react";
-import ProductList from "./ProductsList"
-import ProductForm from "./productForm"
+import ProductList from "./ProductsList";
+import ProductForm from "./productForm";
 
 function Homepage() {
-  
-
   return (
     <div className="">
       <h1>i am the Homepage</h1>
