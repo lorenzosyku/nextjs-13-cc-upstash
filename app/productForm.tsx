@@ -1,7 +1,13 @@
 "use client";
 import React, { FormEvent } from "react";
+import { useSWRConfig } from "swr";
+import fetcher from "../lib/fetchProducts";
 
 function productForm() {
+  //first approach to update the ui without using redux
+
+  const { mutate } = useSWRConfig();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -25,6 +31,8 @@ function productForm() {
       },
       body: JSON.stringify(message),
     });
+
+    await mutate("products", fetcher);
 
     target.title.value = "";
     target.description.value = "";
